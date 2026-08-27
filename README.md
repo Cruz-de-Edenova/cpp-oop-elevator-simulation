@@ -21,6 +21,6 @@ Cilj nije odmah napraviti optimalno rješenje, nego kroz razvoj projekta pratiti
 
 ## Preduvjeti
 
-Repozitorij podrazumijeva osnovno razumijevanje proceduralnog programiranja u C++-u ili barem u jeziku C99.
+Repozitorij koristi standard C++17 i podrazumijeva osnovno razumijevanje proceduralnog programiranja u C++-u ili barem u jeziku C99.
 
 Neće se detaljno obrađivati osnove programiranja i C++-a. Samo će važniji koncepti potrebni za daljnje razumijevanje OOP-a biti ukratko obrađeni u prve 4 cjeline.
