@@ -18,3 +18,9 @@ Ne slijedim striktno zadatke iz knjige niti ih reproduciram. Umjesto toga, izra�
 Projekt se razvija inkrementalno. Kako se uvode novi koncepti, postojeći kod će se proširivati, mijenjati i refaktorirati.
 
 Cilj nije odmah napraviti optimalno rješenje, nego kroz razvoj projekta pratiti kako se novi OOP koncepti mogu primijeniti na konkretnom programu.
+
+## Preduvjeti
+
+Repozitorij podrazumijeva osnovno razumijevanje proceduralnog programiranja u C++-u ili barem u jeziku C99.
+
+Neće se detaljno obrađivati osnove programiranja i C++-a. Samo će važniji koncepti potrebni za daljnje razumijevanje OOP-a biti ukratko obrađeni u prve 4 cjeline.
