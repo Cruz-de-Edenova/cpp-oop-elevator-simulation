@@ -702,13 +702,13 @@ Dinamičko polje stvoreno pomoću `new[]` daje izravan uvid u mehanizam dinamič
 
 ### Razine pokazivača
 
-| Tip | Značenje tipa | Broj razina indirekcije | Tipičan primjer u ovoj temi | Indeksirani pristup |
-| --- | --- | ---: | --- | --- |
-| `int*` | pokazivač na `int` | 1 | dinamičko 1D polje | `ptrValues[i]` |
-| `int**` | pokazivač na pokazivač na `int` | 2 | 2D dinamički alocirano polje | `ptrValues[i][j]` |
-| `int***` | pokazivač na pokazivač na pokazivač na `int` | 3 | 3D dinamički alocirano polje | `ptrValues[i][j][k]` |
+| Tip | Značenje tipa | Broj razina indirekcije |
+| --- | --- | ---: |
+| `int*` | pokazivač na `int` | 1 |
+| `int**` | pokazivač na pokazivač na `int` | 2 |
+| `int***` | pokazivač na pokazivač na pokazivač na `int` | 3 |
 
-Sam tip `int*`, `int**` ili `int***` ne znači automatski da postoji 1D, 2D ili 3D polje. Tip određuje broj razina pokazivača, dok način na koji je memorija organizirana određuje stvarni raspored podataka. Primjer:
+Sam tip `int*`, `int**` ili `int***` ne znači automatski da postoji 1D, 2D ili 3D polje. Tip određuje broj razina indirekcije, dok način na koji je memorija organizirana određuje stvarni raspored podataka. Primjer:
 
 ```cpp
 int value{7};
@@ -716,6 +716,18 @@ int* ptrValue{&value};                // *ptrValue == 7
 int** ptrPtrValue{&ptrValue};         // **ptrPtrValue == 7
 int*** ptrPtrPtrValue{&ptrPtrValue};  // ***ptrPtrPtrValue == 7
 ```
+
+`ptrValue` pokazuje izravno na `value`, `ptrPtrValue` pokazuje na pokazivač `ptrValue`, a `ptrPtrPtrValue` pokazuje na pokazivač `ptrPtrValue`.
+
+Zato je za pristup vrijednosti `7` potrebno onoliko dereferenciranja koliko postoji razina pokazivača:
+
+```text
+ptrValue        -> value
+ptrPtrValue     -> ptrValue     -> value
+ptrPtrPtrValue  -> ptrPtrValue  -> ptrValue  -> value
+```
+
+Dakle, `*`, `**` i `***` ovdje predstavljaju jednu, dvije i tri razine indirekcije, a ne dimenzije polja.
 
 ### Uparivanje alokacije i oslobađanja
 
