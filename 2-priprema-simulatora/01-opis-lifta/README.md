@@ -1,8 +1,8 @@
-# Opis sustava Autoquip Titan Scissors Lift
+# Opis hidraulične podizne platforme Autoquip Titan Scissors Lift
 
-Ova datoteka opisuje fizički sustav **Autoquip Titan Scissors Lift** koji će poslužiti kao osnova za kasniju izradu simulatora. Cilj je prije programiranja što preciznije definirati način rada stvarne hidraulične platforme, njezine glavne komponente, međusobne veze i sigurnosne elemente.
+Ova datoteka opisuje hidrauličnu podiznu teretnu platformu **Autoquip Titan Scissors Lift**, koja će poslužiti kao osnova za kasniju izradu simulatora. Cilj je prije programiranja što preciznije definirati način rada stvarne hidraulične platforme, njezine glavne komponente, međusobne veze i sigurnosne elemente.
 
-Opis se temelji na službenom Autoquip manualu, odabranim električnim i hidrauličnim shemama, te javno dostupnim specifikacijama odabranog modela. Programska arhitektura, virtualni I/O i C++ model namjerno nisu predmet ove datoteke.
+Opis se temelji na službenom Autoquip manualu, odabranim električnim i hidrauličnim shemama, te javno dostupnim specifikacijama odabranog modela. Ovdje se opisuje sam lift i njegov način rada, dok će programski dio simulatora biti obrađen zasebno.
 
 ## Sadržaj
 
@@ -17,7 +17,7 @@ Opis se temelji na službenom Autoquip manualu, odabranim električnim i hidraul
 
 ## 1. Izvor dokumentacije i svrha analize
 
-Službeni manual proizvođača dostupan je za preuzimanje na poveznici:
+Službeni manual proizvođača dostupan je za preuzimanje na web linku:
 
 [Autoquip Titan Scissors Lift – Owner's Manual](https://autoquip.com/wp-content/uploads/2018/03/Manuals-Titan-Scissors-Lift-V2-5.pdf)
 
@@ -56,7 +56,7 @@ Ova tablica je bazirana na podacima sa prethodne slike:
 | Vrijeme podizanja | 45 s |
 | Vrijeme spuštanja | 45 s |
 | Broj cilindara | 3 |
-| Motor naveden u objavljenim specifikacijama modela | 1.5 HP / 1.1 kW |
+| Snaga motora | 1.5 HP / 1.1 kW |
 | Masa platforme | 1180 lb / 535 kg |
 
 Nominalno vrijeme od 45 s za puni hod u oba smjera predstavlja fizikalni parametar modela. Tijekom razvoja simulator može kasnije koristiti zaseban vremenski faktor za ubrzano izvođenje, bez promjene nominalnih vrijednosti fizičkog sustava.
