@@ -149,7 +149,7 @@ ponašanje (behavior)                -> članska funkcija (member function)
 klasa (class)                       -> korisnički definirani tip (user-defined type)
 instanca klase (class instance)     -> objekt toga tipa (object of that type)
 ```
-### Atributi i podatkovni članovi
+### 4.1. Atributi i podatkovni članovi
 
 Atribut opisuje neku karakteristiku ili dio stanja objekta.
 
@@ -165,7 +165,7 @@ Podatkovni član pripada svakom objektu klase. Zato `objUpButton` i `objDownButt
 
 U ovom primjeru `mPressed` predstavlja stanje pojedinog objekta klase `ControlButton`. Povezivanje tog objekta s postojećim proceduralnim virtualnim I/O-om simulatora zasad ne uvodimo.
 
-### Ponašanja i članske funkcije
+### 4.2. Ponašanja i članske funkcije
 
 Ponašanje predstavlja operaciju koja ima smisla za objekt.
 
@@ -176,7 +176,7 @@ void print_state();
 ```
 `set_pressed()` mijenja stanje tipke, a `print_state()` ispisuje trenutačno stanje objekta.
 
-### Specifikatori pristupa `private` i `public`
+### 4.3. Specifikatori pristupa `private` i `public`
 
 `private` i `public` su **specifikatori pristupa** (*access specifiers*). Oni određuju iz kojih se dijelova programa može pristupati članovima klase.
 
@@ -223,7 +223,7 @@ U ovom projektu `private:` pišemo eksplicitno iako je kod `class` to zadani pri
 
 Detaljnije značenje kontrole pristupa i njezina uloga u enkapsulaciji obrađivat će se u zasebnoj temi.
 
-### Pristup članovima klase preko objekta
+### 4.4. Pristup članovima klase preko objekta
 
 Za pristup dostupnom članu klase preko konkretnog objekta koristi se operator `.`.
 
@@ -249,7 +249,7 @@ Ovdje se operatorom `.` pristupa podatkovnom članu `mPressed`.
 
 Kod klase `ControlButton` podatkovni član `mPressed` nalazi se u `private` dijelu, pa mu vanjski kod ne pristupa izravno. Pravila za specifikatore pristupa `private` i `public` te razlog za skrivanje podataka bit će obrađeni u narednim temama.
 
-### `01_control_button.cpp`
+### 4.5. `01_control_button.cpp`
 
 Datoteka `01_control_button.cpp` sadrži dvije demonstracije.
 
