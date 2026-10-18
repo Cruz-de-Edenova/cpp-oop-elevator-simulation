@@ -20,15 +20,15 @@ Posebna pažnja posvećena je lokalnim objektima automatskog trajanja pohrane, o
 3. Dinamički objekt i `delete`
 4. Destruktor i oslobađanje resursa
 5. GDB analiza životnog vijeka objakata
-    5.1. Ispis GDB-a
-    5.2. Vrijednosti i adrese objekata
-    5.3. Redoslijed poziva destruktora
-    5.4. Sadržaj memorije nakon završetka destruktora 
+   - 5.1. Ispis GDB-a
+   - 5.2. Vrijednosti i adrese objekata
+   - 5.3. Redoslijed poziva destruktora
+   - 5.4. Sadržaj memorije nakon završetka destruktora
 6. GDB analiza vlasništva nad dinamičkom memorijom i njezina oslobađanja
-    6.1. Ispis GDB-a
-    6.2. Zasebna dinamička alokacija originala i kopije
-    6.3. Destruktor i dinamički alocirani podatak
-    6.4. Redoslijed oslobađanja dinamičke memorije
+   - 6.1. Ispis GDB-a
+   - 6.2. Zasebna dinamička alokacija originala i kopije
+   - 6.3. Destruktor i dinamički alocirani podatak
+   - 6.4. Redoslijed oslobađanja dinamičke memorije
     
 **Prateći primjeri:**
 
