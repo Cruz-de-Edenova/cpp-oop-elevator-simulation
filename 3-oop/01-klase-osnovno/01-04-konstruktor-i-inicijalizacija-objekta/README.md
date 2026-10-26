@@ -11,6 +11,7 @@ Ova tema uvodi osnovne oblike konstruktora, listu inicijalizatora članova, preo
 - konstruktor s parametrima (*constructor with parameters*)
 - preopterećenje konstruktora (*constructor overloading*)
 - preopterećeni konstruktor (*overloaded constructor*)
+- delegirajući konstruktor (*delegating constructor*)
 - lista inicijalizatora članova (*member initializer list*)
 - defaultni argument konstruktora (*default argument*)
 
@@ -22,7 +23,8 @@ Ova tema uvodi osnovne oblike konstruktora, listu inicijalizatora članova, preo
 4. Primjer 1 — Konstruktor i početno stanje objekta
 5. Primjer 2 — Preopterećenje konstruktora
 6. Primjer 3 — Provjera argumenata konstruktora
-7. GDB analiza preopterećenih konstruktora
+7. Primjer 4 — Delegirajući konstruktor
+8. GDB analiza preopterećenih konstruktora
 
 **Prateći primjeri:**
 
@@ -34,6 +36,8 @@ Ova tema uvodi osnovne oblike konstruktora, listu inicijalizatora članova, preo
 - `3_constructor_argument_validation.cpp`
 - `3_platform_position.cpp`
 - `3_platform_position.h`
+
+**Primjer 4:** `4_delegating_constructor.cpp`
 
 ---
 
@@ -215,7 +219,35 @@ Ova dva pristupa pokazuju da konstruktor može provjeriti podatke dobivene pri s
 
 ---
 
-## 7. GDB analiza preopterećenih konstruktora
+## 7. Primjer 4 — Delegirajući konstruktor
+
+Datoteka: `4_delegating_constructor.cpp`
+
+**Delegirajući konstruktor** (*delegating constructor*) u listi inicijalizatora poziva drugi konstruktor iste klase. Pozvani konstruktor naziva se **ciljni konstruktor** (*target constructor*). Ciljni konstruktor inicijalizira objekt, a zatim se izvršava tijelo delegirajućeg konstruktora. Delegiranjem se ne stvara dodatni objekt.
+
+| Novi koncept | Mjesto u kodu |
+| --- | --- |
+| Delegiranje iz korisnički deklariranog defaultnog konstruktora | `cpp: 37-41` |
+| Delegiranje iz konstruktora s jednim parametrom | `cpp: 45-51` |
+| Izravna inicijalizacija članova u ciljnom konstruktoru | `cpp: 55-59` |
+| Različiti načini stvaranja objekata | `cpp: 95, 101, 107` |
+| Redoslijed izvršavanja tijela konstruktora | `cpp: 40, 50, 58` |
+
+Klasa `PressureRange` ima tri preopterećena konstruktora. Defaultni konstruktor `PressureRange()` delegira konstruktoru `PressureRange(int, int)` i prosljeđuje mu dvije konstante s defaultnim pragovima tlaka (`cpp: 5-6, 37-38`). Konstruktor `PressureRange(int)` istom ciljnom konstruktoru prosljeđuje vrijednost parametra `lowPressure` kao prvi argument, a `kDefaultHighPressure` kao drugi (`cpp: 45-46`).
+
+**Broj parametara delegirajućeg konstruktora ne mora odgovarati broju argumenata proslijeđenih ciljnom konstruktoru.** Argumenti se povezuju s parametrima ciljnog konstruktora prema redoslijedu. Ovdje se oba argumenta uvijek izričito prosljeđuju; konstante s nazivom `kDefault...` nisu defaultni argumenti konstruktora u C++ značenju.
+
+Konstruktor `PressureRange(int, int)` ne delegira, nego izravno inicijalizira članove `mLowPressure` i `mHighPressure` (`cpp: 55-59`). Zato je zajednička inicijalizacija obaju pragova tlaka zapisana samo na jednom mjestu. Kada se taj konstruktor izravno pozove pri stvaranju objekta `objCustom`, nema delegiranja (`cpp: 107`).
+
+U `main()` stvaraju se objekti s nula, jednim i dva argumenta (`cpp: 95, 101, 107`). Ispis iz tijela konstruktora pokazuje da se pri delegiranju najprije izvršava tijelo ciljnog konstruktora, a zatim tijelo delegirajućeg (`cpp: 40, 50, 58`). Dobiveni rasponi tlaka redom su 60–95, 50–95 i 40–110 bar.
+
+**Važno:** lista inicijalizatora delegirajućeg konstruktora smije sadržavati samo poziv ciljnog konstruktora. Nije dopušteno u istoj listi dodatno inicijalizirati nijedan podatkovni član. Zakomentirani izraz `, mLowPressure{lowPressure}` uz konstruktor s jednim parametrom pokazuje nedopušten pokušaj; njegovim otkomentiranjem nastaje pogreška pri kompajliranju. Nakon što ciljni konstruktor završi, podatkovni članovi mogu se mijenjati u tijelu delegirajućeg konstruktora, ali u ovom primjeru to nije potrebno jer se odgovarajuće vrijednosti odmah prosljeđuju ciljnom konstruktoru.
+
+**Kada koristiti delegirajući konstruktor?** Kada klasa nudi više načina stvaranja objekta, a ti konstruktori dijele istu inicijalizaciju, delegiranje izbjegava ponavljanje koda. Posebno je korisno ako se kasnije promijeni zajednički postupak inicijalizacije ili mu se doda provjera vrijednosti: tada ga je dovoljno održavati u jednom ciljnom konstruktoru. Ako konstruktori imaju sasvim različitu inicijalizaciju ili bi delegiranje samo zakompliciralo jednostavan kod, nije ga potrebno koristiti.
+
+---
+
+## 8. GDB analiza preopterećenih konstruktora
 
 Demonstracija koristi `2_constructor_overloading.cpp` za praćenje poziva preopterećenih konstruktora. Cilj je provjeriti da se pri stvaranju različitih objekata poziva odgovarajući konstruktor te promotriti parametar konstruktora i inicijalizirano stanje objekta.
 
