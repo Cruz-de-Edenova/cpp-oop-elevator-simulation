@@ -14,19 +14,19 @@ Prateći primjeri koriste upravljačku ploču s tipkama *UP* i *DOWN* podizne pl
 ## Sadržaj
 
 1. Kompozicija kao odnos cjeline i dijelova
-2. Implementacija kompozicije u C++-u
+2. Implementacija kompozicije u C++-u  
    2.1. Kada je eksplicitna inicijalizacija potrebna?
 3. Redoslijed konstrukcije i uništavanja objekata
 4. Primjer 1 — Upravljačka ploča i dvije tipke
 5. Primjer 2 — Životni vijek upravljačke ploče i tipki
-6. GDB analiza
-   6.1. GDB ispis
+6. GDB analiza  
+   6.1. GDB  
    6.2. Sažeto objašnjenje GDB ispisa
 
 **Prateći primjeri:**
-- **Primjer 1:** `1_control_panel.cpp`
+- **Primjer 1:** `1_control_panel.cpp`  
   Prikazuje kompoziciju i upravljanje stanjem dviju tipki.
-- **Primjer 2:** `2_object_lifetime.cpp`
+- **Primjer 2:** `2_object_lifetime.cpp`  
   Prikazuje redoslijed konstrukcije i uništavanja objekata koji su podatkovni članovi klase `ControlPanel`.
 
 ---
