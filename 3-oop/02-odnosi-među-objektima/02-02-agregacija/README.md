@@ -84,7 +84,7 @@ Datoteka: [1b_agregacija_reference.cpp](1b_agregacija_reference.cpp) — dvije g
 
 ### 2.3. Primjer 2a — Agregacija pomoću pokazivača
 
-Datoteka: [2a_agregacija_pokazivaci.cpp](2a_agregacija_pokazivači.cpp) — naknadno povezivanje objekata.
+Datoteka: [2a_agregacija_pokazivaci.cpp](2a_agregacija_pokazivaci.cpp) — naknadno povezivanje objekata.
 
 | Ključni koncepti i mehanizmi | Mjesto u kodu |
 | --- | --- |
@@ -95,7 +95,7 @@ Datoteka: [2a_agregacija_pokazivaci.cpp](2a_agregacija_pokazivači.cpp) — nakn
 
 ### 2.4. Primjer 2b — Dvije grupe sa zajedničkim objektom (pokazivači)
 
-Datoteka: [2b_agregacija_pokazivaci.cpp](2b_agregacija_pokazivači.cpp) — isti odnos kao u primjeru 1b, pomoću pokazivača.
+Datoteka: [2b_agregacija_pokazivaci.cpp](2b_agregacija_pokazivaci.cpp) — isti odnos kao u primjeru 1b, pomoću pokazivača.
 
 | Ključni koncepti i mehanizmi | Mjesto u kodu |
 | --- | --- |
@@ -130,8 +130,8 @@ Tablični ispis omogućuje praćenje istih objekata tijekom njihova životnog vi
 
 **Prateći primjeri viseće reference i visećeg pokazivača:**
 
-- [Viseća referenca](dodatak/viseća_referenca.cpp) — privremeni objekt `Battery` uništava se nakon završetka naredbe kojom se stvara objekt `MobileRobot`, čime nastaje viseća referenca.
-- [Viseći pokazivač](dodatak/viseći_pokazivač.cpp) — objekt `Battery` uništava se izlaskom iz bloka, dok `MobileRobot` i dalje čuva njegovu adresu.
+- [Viseća referenca](dodatak/viseca_referenca.cpp) — privremeni objekt `Battery` uništava se nakon završetka naredbe kojom se stvara objekt `MobileRobot`, čime nastaje viseća referenca.
+- [Viseći pokazivač](dodatak/viseci_pokazivac.cpp) — objekt `Battery` uništava se izlaskom iz bloka, dok `MobileRobot` i dalje čuva njegovu adresu.
 
 | Dio demonstracije | `viseca_referenca.cpp` | `viseci_pokazivac.cpp` |
 | --- | --- | --- |
